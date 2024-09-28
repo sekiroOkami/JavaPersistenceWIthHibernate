@@ -100,4 +100,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
             SELECT COUNT(u) FROM User u WHERE u.active = ?1
             """)
     int findNumberOfUserByActive(boolean active);
+
+    @Query("""
+            SELECT u FROM User u WHERE u.level = :level AND u.active = :active
+            """)
+    List<User> findByLevelAndActive(@Param("level") int level,@Param("active") boolean active);
 }
