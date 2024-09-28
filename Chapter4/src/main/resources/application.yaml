@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: springdatajpa
+  main:
+    banner-mode: off
+  datasource:
+    url: jdbc:mysql://localhost/spring
+    username: root
+    password:
+  jpa:
+    proterites:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create

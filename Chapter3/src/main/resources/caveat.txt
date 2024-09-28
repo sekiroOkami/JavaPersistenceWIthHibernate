@@ -1,0 +1,48 @@
+1.Category
+    Relationship:
+        -category has a self - referencing relationship(parent-child) with a parent category(0..1) and potentially many
+        child categories(0..*).
+        -one category can be a parent of another category, creating a hierarchical structure.
+
+2.Item
+    Relationships:
+        -each item belongs to one Category(1..) but category can have many Items(0..)
+        -An item can have many Images (0..*)
+        -Each item can have many Bids(0..*) but each Bid is placed on one Item.
+        -Each Item is sold by one User(0..*)
+
+3.Image
+    Relationships:
+        -each Image is associated with one Item(0..1).
+
+4.Bid
+    Relationships:
+        -Each bid is placed by one User(0..1) and associated directly for one Item(0..*)
+
+5.User
+    Relationships:
+        -A User can place many Bids(bidder relation, 0..*)
+        -A User can have multiple Addresses(0..*)
+        -A User can sell many Items(0..*)
+        -A User can have multiple BillingDetails(0..*).
+
+6.BillingDetails(Abstract class)
+    Relationships
+        -BillingDetails has two concrete subclass Credit and BankAccount
+
+
+7.Address
+    Relationship
+        -Associated with User for home, billing
+
+Relationships:
+
+    One-to-Many:
+        -User to Bid(as a bidder)
+        -User to Item(as a seller)
+        -Item to Bid
+        -Item to Image
+        -Category to Item
+
+    One-to-One
+        -Billing

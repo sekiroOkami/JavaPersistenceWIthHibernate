@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+
+storage DomainModel
+rectangle "Presentation Layer" as present
+rectangle "Business Layer" as business
+rectangle "Persistence Layer" as persistence
+rectangle "interceptors,\nUtility,\nand Helper classes" as helper
+database Database as db
+DomainModel <-- present
+DomainModel <-- business
+DomainModel <-- persistence
+present --> helper
+business --> helper
+persistence --> helper
+present -> business
+business -> persistence
+persistence -> db
+
+note top of present
+    responsible for the presentation and control of page
+    and screen navigation is in this layer.
+end note
+@enduml
